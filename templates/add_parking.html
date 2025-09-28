@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if edit %}Edit{% else %}Add{% endif %} Parking Spot</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <label for="location">Location:</label>
+    {{ form.location(class="form-control") }}
+
+    <label for="timings">Timings:</label>
+    {{ form.timings(class="form-control") }}
+
+    <label for="price_per_hour">Price per hour (₹):</label>
+    {{ form.price_per_hour(class="form-control", step="0.01") }}
+
+    <label for="latitude">Latitude:</label>
+    {{ form.latitude(class="form-control", step="0.000001") }}
+
+    <label for="longitude">Longitude:</label>
+    {{ form.longitude(class="form-control", step="0.000001") }}
+
+    <label for="availability">Available Now:</label>
+    {{ form.availability(class="form-control") }}
+    <br><br>
+    <label for="image">Parking Photo:</label>
+    {{ form.image(class="form-control") }}
+    {% for error in form.image.errors %}
+        <span class="error">{{ error }}</span>
+    {% endfor %}
+    <br>
+    <br>
+    {{ form.submit(class="btn") }}
+</form>
+{% endblock %}

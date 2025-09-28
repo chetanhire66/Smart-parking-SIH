@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+{% endblock %}
+
+{% block content %}
+<h1>Parking Spot Details</h1>
+<p><strong>Location:</strong> {{ spot.location }}</p>
+<p><strong>Owner:</strong> {{ spot.owner.name }}</p>
+<p><strong>Price per hour:</strong> ₹{{ '%.2f'|format(spot.price_per_hour) }}</p>
+
+<div id="map"></div>
+
+{% if spot.image_file %}    
+    <h2>Photo of the parking space</h2>
+    <div id="sport_image_div">
+        <img src="{{ url_for('static', filename='uploads/' ~ spot.image_file) }}" alt="Parking Image" id="sport_image">
+    </div>
+{% endif %}
+
+<h2>Book this Spot</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.submit(class="btn", value="Book Now") }}
+</form>
+
+<p><a href="{{ url_for('all_spots') }}">Back to All Spots</a></p>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([{{ spot.latitude or 18.5204 }}, {{ spot.longitude or 73.8567 }}], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    {% if spot.latitude and spot.longitude %}
+        L.marker([{{ spot.latitude }}, {{ spot.longitude }}]).addTo(map)
+            .bindPopup("<b>{{ spot.location }}</b><br>₹{{ spot.price_per_hour }}/hr")
+            .openPopup();
+    {% endif %}
+});
+</script>
+{% endblock %}
