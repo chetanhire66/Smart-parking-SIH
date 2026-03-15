@@ -8,6 +8,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask import send_from_directory
 
+
 app = Flask(__name__)
 app.config.from_object(Config)
 
@@ -39,6 +40,10 @@ def login_required(role=None):
 @app.route("/google12345abcd.html")
 def google_verify():
     return send_from_directory('static', 'google12345abcd.html')
+
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory("static", "robots.txt")
 
 # -------------------- HOME --------------------
 @app.route('/')
