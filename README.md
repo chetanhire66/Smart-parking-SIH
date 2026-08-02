@@ -1,3 +1,11 @@
+## 🤝 Project Attribution
+
+This project was developed as a collaborative hackathon submission.
+
+The product idea, software engineering, AI development, backend implementation, frontend development, deployment, documentation, and presentation were completed collectively by the team, with individual responsibilities outlined in the **Team Contributions** section below.
+
+
+
 # 🚗 Smart Parking Management System (Flask Web App)
 
 Smart Parking is a **Flask-based web application** designed to simplify parking management for cities and institutions.  
