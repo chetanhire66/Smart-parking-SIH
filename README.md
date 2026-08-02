@@ -173,7 +173,32 @@ Database tables are automatically created on first run.
 
 ---
 
-## 👨‍💻 Author
+# 👥 Team Contributions
 
-**Chetan Hire**
-GitHub: [https://github.com/chetanhire66](https://github.com/chetanhire66)
+This project was developed collaboratively during **Smart India Hackathon (SIH) 2025** under the **Transportation & Logistics** domain.
+
+## Vishal Deshmukh
+
+- Proposed the original Smart Parking platform concept
+- Identified the real-world problem and solution approach
+- Designed AI-driven feature ideas and future intelligent capabilities
+- Contributed to frontend implementation and UI improvements
+- Prepared technical presentations, documentation, and project materials
+- Collaborated on overall product planning and hackathon submission
+
+---
+
+## Chetan Hire
+
+- Led backend development using Flask
+- Designed and implemented the application architecture
+- Integrated the database using SQLAlchemy
+- Developed authentication and parking management modules
+- Managed deployment on Render
+- Contributed to overall application implementation
+
+---
+
+## Team
+
+The project was built collaboratively through ideation, design, development, testing, and presentation. Every team member contributed toward delivering the final Smart Parking Management System during Smart India Hackathon 2025.
